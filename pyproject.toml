@@ -1,0 +1,95 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry]
+name = "basic-data-structure"
+version = "0.0.5"
+description = "Implementation of basic sata structures in Python"
+authors = ["Mikhail Shagov <mishaga@me.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/mishaga/basic_data_structure"
+keywords = ["data structure", "data structures", "python data structures", "basic data structures"]
+
+[tool.poetry.urls]
+"Issues" = "https://github.com/mishaga/basic_data_structure/issues"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.dev.dependencies]
+wemake-python-styleguide = "^0.19.2"
+flake8-pyproject = "^1.2.3"
+pytest = "^8.2.0"
+isort = "^5.13.2"
+
+
+[tool.isort]
+profile = "wemake"
+
+
+[tool.flake8]
+format = "wemake"
+max-complexity = "10"
+import-order-style = "pycharm"
+min-coverage-percents = "80"
+max-line-length = "120"
+class_attributes_order = [
+    "field",
+    "meta_class",
+    "nested_class",
+    "magic_method",
+    "property_method",
+    "static_method",
+    "class_method",
+    "method",
+    "private_method",
+]
+ignore = ["D100", "D104", "WPS112"]
+per-file-ignores = [
+    "*/__init__.py: F401, WPS300, WPS412",
+]
+# B001   – Do not use bare except
+# B008   – Do not perform function calls in argument defaults
+# D100   – Missing docstring in public module
+# D104   – Missing docstring in public package
+# DAR101 – Missing parameter(s) in Docstring
+# DAR201 – Missing "Returns" in Docstring
+# DAR301 – Missing "Yields" in Docstring
+# DAR401 – Missing exception in Raises section
+# E722   – Do not use bare except
+# F401   – Imported but unused
+# E711   – comparison to None
+# N805   – first argument of a method should be named 'self'
+# S101   – Use of assert detected
+# WPS110 – Found wrong variable name
+# WPS112 – Found private name pattern
+# WPS115 – Found upper-case constant in a class
+# WPS201 – Found module with too many imports
+# WPS202 – Found too many module members
+# WPS204 – Found overused expression
+# WPS210 – Found too many local variables
+# WPS213 – Found too many expressions
+# WPS214 – Found too many methods
+# WPS217 – Found too many await expressions
+# WPS218 – Found too many `assert` statements
+# WPS221 – Found line with high Jones Complexity
+# WPS226 – Found string literal over-use
+# WPS232 – Found module cognitive complexity that is too high
+# WPS300 – Found local folder import
+# WPS301 – Found dotted raw import
+# WPS305 – Found f-string
+# WPS306 – Found class without a base class
+# WPS316 – Found context manager with too many assignments
+# WPS318 – Found extra indentation
+# WPS323 – Found % string formatting
+# WPS404 – Found complex default value
+# WPS412 – Found `__init__.py` module with logic
+# WPS432 – Found magic number
+# WPS442 – Found outer scope names shadowing
+# WPS450 – Found protected object import
+# WPS451 – Found positional-only argument
+# WPS520 – Found compare with falsy constant
+# Q001   – Single quote multiline found but double quotes preferred
