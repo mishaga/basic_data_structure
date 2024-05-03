@@ -1,8 +1,7 @@
 import pytest
 
 from basic_data_structure import LinkedList, ListNode
-from basic_data_structure.exceptions import ListHasCycleError
-from basic_data_structure.list.iterators import ListNodeIterator
+from basic_data_structure.iterators.list_node_iterator import ListNodeIterator
 
 
 def test_iterator(empty_list: LinkedList):

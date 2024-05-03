@@ -2,21 +2,21 @@ from basic_data_structure import Stack
 
 
 def test_init_empty():
-    s = Stack()
-    s.push(1)
-    assert len(s) == 1
+    stack = Stack()
+    stack.push(1)
+    assert len(stack) == 1
 
 
 def test_init_not_empty():
-    s = Stack(1, 2, 3, 4)
-    s.push(5)
-    assert len(s) == 5
-    assert s.pop() == 5
+    stack = Stack(1, 2, 3, 4)
+    stack.push(5)
+    assert len(stack) == 5
+    assert stack.pop() == 5
 
 
 def test_push_twice():
-    s = Stack()
-    s.push('a')
-    s.push('b')
-    assert len(s) == 2
-    assert s.pop() == 'b'
+    stack = Stack()
+    stack.push('a')
+    stack.push('b')
+    assert len(stack) == 2
+    assert stack.pop() == 'b'

@@ -4,8 +4,8 @@ from basic_data_structure import Stack
 
 
 def test_empty_stack():
-    s = Stack()
-    assert len(s) == 0
+    stack = Stack()
+    assert len(stack) == 0
 
 
 @pytest.mark.parametrize('sequence', (
@@ -14,19 +14,19 @@ def test_empty_stack():
     [object()],
 ))
 def test_inited_stack(sequence: list):
-    s = Stack(*sequence)
-    assert len(s) == len(sequence)
+    stack = Stack(*sequence)
+    assert len(stack) == len(sequence)
 
 
 def test_pushed_stack():
-    s = Stack()
-    s.push(0)
-    s.push(1)
-    assert len(s) == 2
+    stack = Stack()
+    stack.push(0)
+    stack.push(1)
+    assert len(stack) == 2
 
 
 def test_mix():
-    s = Stack(1, 2, 3)
-    s.push(4)
-    s.push(5)
-    assert len(s) == 5
+    stack = Stack(1, 2, 3)
+    stack.push(4)
+    stack.push(5)
+    assert len(stack) == 5

@@ -1,60 +1,60 @@
 import pytest
 
 from basic_data_structure import Stack
-from basic_data_structure.exceptions import EmptyStackError
+from basic_data_structure.exceptions.stack_exceptions import StackIsEmptyError
 
 
 def test_init_empty():
-    s = Stack()
-    s.push(1)
-    assert s.pop() == 1
+    stack = Stack()
+    stack.push(1)
+    assert stack.pop() == 1
 
 
 def test_init_not_empty():
-    s = Stack(1, 2, 3, 4)
-    assert s.pop() == 4
+    stack = Stack(1, 2, 3, 4)
+    assert stack.pop() == 4
 
 
 def test_loop():
-    s = Stack(1, 2, 3, 4, 5)
+    stack = Stack(1, 2, 3, 4, 5)
     lst = []
-    while s:
-        lst.append(s.pop())
+    while stack:
+        lst.append(stack.pop())
     assert lst == [5, 4, 3, 2, 1]
-    assert len(s) == 0
-    assert bool(s) is False
+    assert len(stack) == 0
+    assert bool(stack) is False
 
 
 def test_flow():
-    s = Stack('a', 'b', 'c', 'd')
-    assert len(s) == 4
+    stack = Stack('a', 'b', 'c', 'd')
+    assert len(stack) == 4
 
-    s.push('e')
-    s.push('f')
-    s.push('g')
-    assert len(s) == 7
+    stack.push('e')
+    stack.push('f')
+    stack.push('g')
+    assert len(stack) == 7
 
-    assert s.pop() == 'g'
-    assert len(s) == 6
+    assert stack.pop() == 'g'
+    assert len(stack) == 6
 
-    assert s.pop() == 'f'
-    assert len(s) == 5
+    assert stack.pop() == 'f'
+    assert len(stack) == 5
 
-    assert s.pop() == 'e'
-    assert len(s) == 4
+    assert stack.pop() == 'e'
+    assert len(stack) == 4
 
-    assert s.pop() == 'd'
-    assert len(s) == 3
+    assert stack.pop() == 'd'
+    assert len(stack) == 3
 
-    assert s.pop() == 'c'
-    assert len(s) == 2
+    assert stack.pop() == 'c'
+    assert len(stack) == 2
 
-    assert s.pop() == 'b'
-    assert len(s) == 1
+    assert stack.pop() == 'b'
+    assert len(stack) == 1
 
-    assert s.pop() == 'a'
-    assert len(s) == 0
+    assert stack.pop() == 'a'
+    assert len(stack) == 0
 
-    with pytest.raises(EmptyStackError):
-        s.pop()
-    assert len(s) == 0
+    with pytest.raises(StackIsEmptyError):
+        stack.pop()
+    assert len(stack) == 0

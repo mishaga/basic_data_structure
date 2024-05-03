@@ -1,7 +1,7 @@
 import pytest
 
-from basic_data_structure import LinkedList, ListNode
-from basic_data_structure.list.iterators import ListValueIterator
+from basic_data_structure import LinkedList
+from basic_data_structure.iterators.list_value_iterator import ListValueIterator
 
 
 def test_iterator():

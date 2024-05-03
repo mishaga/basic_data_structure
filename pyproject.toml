@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "basic-data-structure"
-version = "0.0.5"
+version = "0.0.6"
 description = "Implementation of basic sata structures in Python"
 authors = ["Mikhail Shagov <mishaga@me.com>"]
 readme = "README.md"
@@ -15,6 +15,7 @@ keywords = ["data structure", "data structures", "python data structures", "basi
 
 [tool.poetry.urls]
 "Issues" = "https://github.com/mishaga/basic_data_structure/issues"
+"Documentation" = "https://mishaga.github.io/basic_data_structure/"
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -24,6 +25,7 @@ wemake-python-styleguide = "^0.19.2"
 flake8-pyproject = "^1.2.3"
 pytest = "^8.2.0"
 isort = "^5.13.2"
+pdoc = "^14.4.0"
 
 
 [tool.isort]
@@ -47,14 +49,18 @@ class_attributes_order = [
     "method",
     "private_method",
 ]
-ignore = ["D100", "D104", "WPS112"]
+ignore = ["D300", "D301", "D400", "RST214", "RST215", "RST201", "RST213", "RST301", "WPS112"]
 per-file-ignores = [
-    "*/__init__.py: F401, WPS300, WPS412",
+    "*/__init__.py: F401, WPS412",
 ]
 # B001   – Do not use bare except
 # B008   – Do not perform function calls in argument defaults
 # D100   – Missing docstring in public module
+# D103   – Missing docstring in public function
 # D104   – Missing docstring in public package
+# D300   – Use """triple double quotes"""
+# D301   – Use r""" if any backslashes in a docstring
+# D400   – First line should end with a period
 # DAR101 – Missing parameter(s) in Docstring
 # DAR201 – Missing "Returns" in Docstring
 # DAR301 – Missing "Yields" in Docstring
@@ -63,6 +69,11 @@ per-file-ignores = [
 # F401   – Imported but unused
 # E711   – comparison to None
 # N805   – first argument of a method should be named 'self'
+# RST214 – Inline literal start-string without end-string
+# RST215 – Inline interpreted text or phrase reference start-string without end-string
+# RST201 – Block quote ends without a blank line; unexpected unindent
+# RST213 – Inline emphasis start-string without end-string
+# RST301 – Unexpected indentation
 # S101   – Use of assert detected
 # WPS110 – Found wrong variable name
 # WPS112 – Found private name pattern
@@ -91,5 +102,6 @@ per-file-ignores = [
 # WPS442 – Found outer scope names shadowing
 # WPS450 – Found protected object import
 # WPS451 – Found positional-only argument
+# WPS507 – Found useless `len()` compare
 # WPS520 – Found compare with falsy constant
 # Q001   – Single quote multiline found but double quotes preferred

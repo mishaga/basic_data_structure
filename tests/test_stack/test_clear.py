@@ -1,24 +1,24 @@
 import pytest
 
 from basic_data_structure import Stack
-from basic_data_structure.exceptions import EmptyStackError
+from basic_data_structure.exceptions.stack_exceptions import StackIsEmptyError
 
 
 def test_with_init():
-    s = Stack(1, 2, 3)
-    s.clear()
-    assert bool(s) is False
-    assert len(s) == 0
-    with pytest.raises(EmptyStackError):
-        s.pop()
+    stack = Stack(1, 2, 3)
+    stack.clear()
+    assert bool(stack) is False
+    assert len(stack) == 0
+    with pytest.raises(StackIsEmptyError):
+        stack.pop()
 
 
 def test_with_push():
-    s = Stack()
-    s.push('a')
-    s.push('b')
-    s.clear()
-    assert bool(s) is False
-    assert len(s) == 0
-    with pytest.raises(EmptyStackError):
-        s.pop()
+    stack = Stack()
+    stack.push('a')
+    stack.push('b')
+    stack.clear()
+    assert bool(stack) is False
+    assert len(stack) == 0
+    with pytest.raises(StackIsEmptyError):
+        stack.pop()

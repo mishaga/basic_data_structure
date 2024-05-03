@@ -1,7 +1,7 @@
 import pytest
 
 from basic_data_structure import LinkedList, ListNode
-from basic_data_structure.exceptions import ListHasCycleError
+from basic_data_structure.exceptions.list_exceptions import ListHasCycleError
 
 
 def test_empty_list(empty_list: LinkedList):
@@ -26,9 +26,11 @@ def test_mix(int_list: LinkedList):
 
 def test_manual_add(int_list: LinkedList):
     assert len(int_list) == 3
-    item = int_list[-1]
-    assert item.next is None
-    item.next = ListNode(4)
+
+    node = int_list[2]
+    assert node.next is None
+
+    node.next = ListNode(4)
     assert len(int_list) == 4
 
 

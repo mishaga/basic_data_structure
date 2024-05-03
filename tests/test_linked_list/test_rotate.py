@@ -1,7 +1,7 @@
 import pytest
 
 from basic_data_structure import LinkedList
-from basic_data_structure.exceptions import ListHasCycleError
+from basic_data_structure.exceptions.list_exceptions import ListHasCycleError
 
 
 @pytest.mark.parametrize('count', (1, 2, 3, -1, -10, 100))

@@ -1,13 +1,13 @@
 import pytest
 
 from basic_data_structure import LinkedList
-from basic_data_structure.exceptions import ListHasCycleError
+from basic_data_structure.exceptions.list_exceptions import ListNegativeIndexError
 
 
-def test_empty_list():
-    lst = LinkedList()
-    lst.insert(0, 'a')
-    assert list(lst.values()) == ['a']
+@pytest.mark.parametrize('idx', (0, 1, 2, 10))
+def test_empty_list(empty_list: LinkedList, idx: int):
+    empty_list.insert(idx, 'a')
+    assert list(empty_list.values()) == ['a']
 
 
 def test_insert_between():
@@ -34,28 +34,10 @@ def test_append():
     assert list(lst.values()) == ['a', 'b', 'c', 'd']
 
 
-def test_negative_one_index():
-    lst = LinkedList('a', 'b', 'd')
-    lst.insert(-1, 'c')
-    assert list(lst.values()) == ['a', 'b', 'c', 'd']
-
-
-def test_negative_two_index():
-    lst = LinkedList('a', 'c', 'd')
-    lst.insert(-2, 'b')
-    assert list(lst.values()) == ['a', 'b', 'c', 'd']
-
-
-def test_negative_equals_zero():
-    lst = LinkedList('b', 'c', 'd')
-    lst.insert(-3, 'a')
-    assert list(lst.values()) == ['a', 'b', 'c', 'd']
-
-
-@pytest.mark.parametrize('idx', (-4, -5, -10, -100))
-def test_too_low_index(int_list: LinkedList, idx: int):
-    int_list.insert(idx, 0)
-    assert list(int_list.values()) == [0, 1, 2, 3]
+@pytest.mark.parametrize('idx', (-1, -2, -3, -10, -100))
+def test_negative_index(int_list: LinkedList, idx: int):
+    with pytest.raises(ListNegativeIndexError):
+        int_list.insert(idx, 'any value')
 
 
 @pytest.mark.parametrize('idx', (4, 5, 10, 100))
@@ -64,6 +46,6 @@ def test_too_high_index(int_list: LinkedList, idx: int):
     assert list(int_list.values()) == [1, 2, 3, 4]
 
 
-def test_cycle(cycled_list: LinkedList):
-    with pytest.raises(ListHasCycleError):
-        cycled_list.insert(0, 0)
+@pytest.mark.parametrize('idx', range(10))
+def test_cycle(cycled_list: LinkedList, idx: int):
+    cycled_list.insert(idx, 'new value')
