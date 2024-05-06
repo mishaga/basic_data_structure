@@ -104,4 +104,5 @@ per-file-ignores = [
 # WPS451 – Found positional-only argument
 # WPS507 – Found useless `len()` compare
 # WPS520 – Found compare with falsy constant
+# WPS615 – Found unpythonic getter or setter
 # Q001   – Single quote multiline found but double quotes preferred

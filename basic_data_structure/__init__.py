@@ -183,7 +183,12 @@ if __name__ == '__main__':
 """
 
 
+from basic_data_structure.double_linked_list import DoubleLinkedList
 from basic_data_structure.linked_list import LinkedList
+from basic_data_structure.nodes.double_linked_list_node import (
+    DoubleLinkedListNode,
+)
 from basic_data_structure.nodes.list_node import ListNode
 from basic_data_structure.nodes.tree_node import TreeNode
+from basic_data_structure.queue import Queue
 from basic_data_structure.stack import Stack

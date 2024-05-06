@@ -88,16 +88,16 @@ class Stack:
         Parameters:
             args: a tuple of values to start with (could be empty)
         """
-        length = 0
+        self.__length = 0
+
         previous = None
         pointer = None
         for arg in args:
             pointer = ListNode(value=arg, nxt=previous)
             previous = pointer
-            length += 1
+            self.__length += 1
 
         self.__head = pointer
-        self.__length = length
 
     def __bool__(self) -> bool:
         """Return `False` if the stack is empty, `True` otherwise.

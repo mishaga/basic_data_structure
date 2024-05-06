@@ -8,7 +8,7 @@ from basic_data_structure.nodes.list_node import ListNode
 class ListValueIterator:
     """Linked list value iterator.
 
-    Iterates through list and returns value of a ListNode.
+    Iterates through linked list and returns nodes' values.
     """
 
     def __init__(self, head: Optional[ListNode]) -> None:
