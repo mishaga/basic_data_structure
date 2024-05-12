@@ -46,7 +46,7 @@ jobs:
 
 
   build-doc:
-    if: github.event.pull_request.merged == true
+    if: ${{ github.ref == 'refs/heads/main' }}
     needs:
       - lint
       - test
@@ -75,7 +75,7 @@ jobs:
 
 
   deploy-doc:
-    if: github.event.pull_request.merged == true
+    if: ${{ github.ref == 'refs/heads/main' }}
     needs: build-doc
     runs-on: ubuntu-latest
     permissions:
