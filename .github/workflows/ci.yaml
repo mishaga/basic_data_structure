@@ -16,14 +16,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python with Poetry
+      - name: Set up Python & Poetry
         uses: mishaga/action-poetry@1
         with:
           python-version: ${{ matrix.python-version }}
-          afterwards: "poetry install --no-root"
+
+      - name: Install dependencies
+        run: poetry install --no-root
 
       - name: Analysing the code with flake8
-        run: flake8 --count basic_data_structure/
+        run: poetry run flake8 --count basic_data_structure/
 
 
   test:
@@ -35,14 +37,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python with Poetry
+      - name: Set up Python & Poetry
         uses: mishaga/action-poetry@1
         with:
           python-version: ${{ matrix.python-version }}
-          afterwards: "poetry install --no-root"
+
+      - name: Install dependencies
+        run: poetry install --no-root
 
       - name: Testing code with pytest
-        run: pytest -v
+        run: poetry run pytest -v
+
 
 
   build-doc:
@@ -57,16 +62,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python with Poetry
+      - name: Set up Python & Poetry
         uses: mishaga/action-poetry@1
         with:
           python-version: '3.12'
-          afterwards: "poetry install --no-root"
+
+      - name: Install dependencies
+        run: poetry install --no-root
 
       - name: Generate documentation
         run: |
           mkdir docs
-          pdoc -o docs/ -d google --no-search --no-show-source basic_data_structure
+          poetry run pdoc -o docs/ -d google --no-search --no-show-source basic_data_structure
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
